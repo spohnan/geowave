@@ -51,7 +51,6 @@ import mil.nga.giat.geowave.index.dimension.LongitudeDefinition;
 import mil.nga.giat.geowave.index.dimension.NumericDimensionDefinition;
 import mil.nga.giat.geowave.index.sfc.data.MultiDimensionalNumericData;
 import mil.nga.giat.geowave.raster.FitToIndexGridCoverage;
-import mil.nga.giat.geowave.raster.FitToIndexPersistenceEncoding;
 import mil.nga.giat.geowave.raster.RasterUtils;
 import mil.nga.giat.geowave.raster.Resolution;
 import mil.nga.giat.geowave.raster.adapter.merge.RasterTileCombiner;
@@ -68,6 +67,7 @@ import mil.nga.giat.geowave.raster.stats.RasterBoundingBoxStatistics;
 import mil.nga.giat.geowave.raster.stats.RasterFootprintStatistics;
 import mil.nga.giat.geowave.store.GeometryUtils;
 import mil.nga.giat.geowave.store.adapter.AdapterPersistenceEncoding;
+import mil.nga.giat.geowave.store.adapter.FitToIndexPersistenceEncoding;
 import mil.nga.giat.geowave.store.adapter.IndexDependentDataAdapter;
 import mil.nga.giat.geowave.store.adapter.IndexedAdapterPersistenceEncoding;
 import mil.nga.giat.geowave.store.adapter.statistics.BoundingBoxDataStatistics;
@@ -1283,7 +1283,7 @@ public class RasterDataAdapter implements
 	}
 
 	@Override
-	public IteratorConfig[] getAttachedIteratorConfig() {
+	public IteratorConfig[] getAttachedIteratorConfig(final Index index) {
 		final RasterTileCombinerConfig tileCombiner = new RasterTileCombinerConfig(
 				new IteratorSetting(
 						RASTER_TILE_COMBINER_PRIORITY,
