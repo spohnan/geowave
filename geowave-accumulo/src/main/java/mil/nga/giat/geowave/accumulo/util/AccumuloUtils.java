@@ -265,6 +265,7 @@ public class AccumuloUtils
 				indexData,
 				extendedData);
 		if ((clientFilter == null) || clientFilter.accept(encodedRow)) {
+			// cannot get here unless adapter is found (not null)
 			return Pair.of(
 					adapter.decode(
 							encodedRow,
