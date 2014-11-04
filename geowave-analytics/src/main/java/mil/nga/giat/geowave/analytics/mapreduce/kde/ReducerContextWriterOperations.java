@@ -27,14 +27,14 @@ public class ReducerContextWriterOperations implements
 				context,
 				tableName);
 	}
-	
+
 	public void insureAuthorization(
 			final String... authorizations )
 			throws AccumuloException,
 			AccumuloSecurityException {
-		
+
 	}
-	
+
 	@Override
 	public Scanner createScanner(
 			final String tableName,
@@ -158,5 +158,16 @@ public class ReducerContextWriterOperations implements
 	public String[] getAuthorizations(
 			String... additionalAuthorizations ) {
 		return additionalAuthorizations;
+	}
+
+	@Override
+	public void clearLocalityGroup(
+			String tableName,
+			byte[] localityGroup )
+			throws AccumuloException,
+			AccumuloSecurityException,
+			TableNotFoundException {
+		// TODO Auto-generated method stub
+
 	}
 }
