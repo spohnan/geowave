@@ -1,0 +1,2 @@
+debian/sources/site/* usr/local/geowave/docs
+debian/sources/manpages/* usr/local/share/man/man1

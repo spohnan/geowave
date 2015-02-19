@@ -1,0 +1,10 @@
+#!/bin/bash
+
+INSTALL_DIR=/usr/local/geowave/accumulo
+
+# Set ownership and permissions
+chown -fR 'hdfs:hdfs' $INSTALL_DIR
+find $INSTALL_DIR -type f -exec chmod 644 {} \;
+find $INSTALL_DIR -type d -exec chmod 755 {} \;
+
+/bin/bash /usr/local/geowave/accumulo/deploy-geowave-to-hdfs.sh >> /usr/local/geowave/accumulo/geowave-to-hdfs.log 2>&1

@@ -1,0 +1,5 @@
+#!/bin/bash
+
+chown -fR 'geowave:geowave' '/usr/local/geowave/geoserver'
+
+/usr/sbin/update-rc.d geowave defaults

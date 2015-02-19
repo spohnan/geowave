@@ -90,9 +90,9 @@ dependency_tests() {
 
 # All configurable strings should be externalized to a props file
 source_props() {
-	. $ADMIN_SCRIPTS_DIR/default-props.sh
-	if [ -f $ADMIN_SCRIPTS_DIR/local-props.sh ]; then
-	  . $ADMIN_SCRIPTS_DIR/local-props.sh
+	. $ADMIN_SCRIPTS_DIR/../../default-props.sh
+	if [ -f $ADMIN_SCRIPTS_DIR/../../local-props.sh ]; then
+	  . $ADMIN_SCRIPTS_DIR/../../local-props.sh
 	fi
 }
 

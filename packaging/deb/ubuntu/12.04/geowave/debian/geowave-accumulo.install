@@ -1,0 +1,3 @@
+debian/sources/deploy-geowave-to-hdfs.sh usr/local/geowave/accumulo
+debian/sources/geowave-accumulo-build.properties usr/local/geowave/accumulo
+debian/sources/geowave-accumulo.jar usr/local/geowave/accumulo

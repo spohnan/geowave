@@ -1,0 +1,3 @@
+#!/bin/bash
+
+/usr/sbin/service geowave stop >/dev/null 2>&1

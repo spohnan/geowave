@@ -1,0 +1,11 @@
+#!/bin/bash
+
+INSTALL_DIR=/usr/local/geowave/ingest
+
+# Set ownership and permissions
+chown -fR 'geowave:geowave' $INSTALL_DIR
+find $INSTALL_DIR -type f -exec chmod 644 {} \;
+find $INSTALL_DIR -type f -name *.sh -exec chmod 755 {} \;
+find $INSTALL_DIR -type d -exec chmod 755 {} \;
+
+ln -s /usr/local/geowave/ingest/geowave-ingest.sh /usr/local/bin/geowave-ingest

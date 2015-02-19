@@ -1,0 +1,5 @@
+geowave (0.8.2-TIMESTAMP) experimental; urgency=low
+
+  * Initial packaging
+
+ -- Andrew Spohn <andrew.e.spohn.ctr@nga.mil>  Fri, 13 Feb 2015 12:06:56 +0000

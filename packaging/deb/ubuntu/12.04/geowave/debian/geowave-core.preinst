@@ -1,0 +1,4 @@
+#!/bin/bash
+
+getent group geowave > /dev/null || /usr/sbin/groupadd -r geowave
+getent passwd geowave > /dev/null || /usr/sbin/useradd --system --home /usr/local/geowave -g geowave geowave -c "GeoWave Application Account"

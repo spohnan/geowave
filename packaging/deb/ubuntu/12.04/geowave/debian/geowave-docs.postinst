@@ -1,0 +1,8 @@
+#!/bin/sh
+
+INSTALL_DIR=/usr/local/geowave/docs
+
+# Set ownership and permissions
+chown -fR 'geowave:geowave' $INSTALL_DIR
+find $INSTALL_DIR -type f -exec chmod 644 {} \;
+find $INSTALL_DIR -type d -exec chmod 755 {} \;

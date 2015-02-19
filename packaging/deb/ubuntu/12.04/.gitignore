@@ -1,0 +1,6 @@
+# Deb files and files generated during the build process
+*.deb
+*.substvars
+
+# Content directories that go into the Deb archives
+geowave/geowave-*/
