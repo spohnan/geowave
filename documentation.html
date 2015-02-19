@@ -5,7 +5,7 @@
 <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 1.5.2">
-<meta name="author" content="v0.8.2-SNAPSHOT">
+<meta name="author" content="v0.8.3-SNAPSHOT">
 <title>GeoWave Documentation</title>
 <style>
 /*! normalize.css v3.0.1 | MIT License | git.io/normalize */
@@ -7848,17 +7848,17 @@ span.icon > .fa {
 <div id="header">
 <h1>GeoWave Documentation</h1>
 <div class="details">
-<span id="author" class="author">v0.8.2-SNAPSHOT</span><br>
+<span id="author" class="author">v0.8.3-SNAPSHOT</span><br>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
 <li><a href="#links">Links</a>
 <ul class="sectlevel2">
-<li><a href="#span-class-icon-i-class-fa-fa-home-i-span-a-href-http-spohnan-github-io-geowave-site-a"><span class="icon"><i class="fa fa-home"></i></span> <a href="http://spohnan.github.io/geowave">Site</a></a></li>
-<li><a href="#span-class-icon-i-class-fa-fa-file-code-o-i-span-a-href-http-spohnan-github-io-geowave-apidocs-index-html-javadoc-a"><span class="icon"><i class="fa fa-file-code-o"></i></span> <a href="http://spohnan.github.io/geowave/apidocs/index.html">Javadoc</a></a></li>
+<li><a href="#span-class-icon-i-class-fa-fa-home-i-span-a-href-http-ngageoint-github-io-geowave-site-a"><span class="icon"><i class="fa fa-home"></i></span> <a href="http://ngageoint.github.io/geowave/">Site</a></a></li>
+<li><a href="#span-class-icon-i-class-fa-fa-file-code-o-i-span-a-href-http-ngageoint-github-io-geowave-apidocs-index-html-javadoc-a"><span class="icon"><i class="fa fa-file-code-o"></i></span> <a href="http://ngageoint.github.io/geowave/apidocs/index.html">Javadoc</a></a></li>
 <li><a href="#span-class-icon-i-class-fa-fa-github-i-span-a-href-https-github-com-ngageoint-geowave-github-a"><span class="icon"><i class="fa fa-github"></i></span> <a href="https://github.com/ngageoint/geowave">GitHub</a></a></li>
-<li><a href="#span-class-icon-i-class-fa-fa-file-archive-o-i-span-a-href-http-spohnan-github-io-geowave-packages-html-rpms-a"><span class="icon"><i class="fa fa-file-archive-o"></i></span> <a href="http://spohnan.github.io/geowave/packages.html">RPMs</a></a></li>
+<li><a href="#span-class-icon-i-class-fa-fa-file-archive-o-i-span-a-href-http-ngageoint-github-io-geowave-packages-html-rpms-a"><span class="icon"><i class="fa fa-file-archive-o"></i></span> <a href="http://ngageoint.github.io/geowave/packages.html">RPMs</a></a></li>
 </ul>
 </li>
 <li><a href="#what-is-geowave">What is GeoWave</a>
@@ -7893,6 +7893,12 @@ span.icon > .fa {
 <ul class="sectlevel2">
 <li><a href="#overview-2">Overview</a></li>
 <li><a href="#ingest-framework">Framework</a></li>
+<li><a href="#cmd-geowave-ingest">Cmd: geowave-ingest</a></li>
+<li><a href="#operation-clear">Operation: -clear</a></li>
+<li><a href="#operation-hdfsingest">Operation: -hdfsingest</a></li>
+<li><a href="#operation-hdfsstage">Operation: -hdfsstage</a></li>
+<li><a href="#operation-localingest">Operation: -localingest</a></li>
+<li><a href="#operation-poststage">Operation: -poststage</a></li>
 <li><a href="#ingest-standalone">Standalone</a></li>
 <li><a href="#ingest-plugins">Ingest plugins</a></li>
 </ul>
@@ -7907,10 +7913,21 @@ span.icon > .fa {
 <li><a href="#geoserver">GeoServer</a></li>
 </ul>
 </li>
-<li><a href="#installation-2">Installation</a>
+<li><a href="#installation-from-rpm">Installation from RPM</a>
+<ul class="sectlevel2">
+<li><a href="#overview-4">Overview</a></li>
+<li><a href="#examples">Examples</a></li>
+</ul>
+</li>
+<li><a href="#installation-from-source">Installation from Source</a>
 <ul class="sectlevel2">
 <li><a href="#geoserver-2">GeoServer</a></li>
 <li><a href="#accumulo">Accumulo</a></li>
+</ul>
+</li>
+<li><a href="#accumulo-configuration">Accumulo Configuration</a>
+<ul class="sectlevel2">
+<li><a href="#overview-5">Overview</a></li>
 </ul>
 </li>
 <li><a href="#building-2">Building</a>
@@ -7923,11 +7940,20 @@ span.icon > .fa {
 </li>
 <li><a href="#documentation-2">Documentation</a>
 <ul class="sectlevel2">
-<li><a href="#overview-4">Overview</a></li>
+<li><a href="#overview-6">Overview</a></li>
 <li><a href="#ordering">Ordering</a></li>
 <li><a href="#preview">Preview</a></li>
 <li><a href="#transformation">Transformation</a></li>
 <li><a href="#publishing">Publishing</a></li>
+</ul>
+</li>
+<li><a href="#puppet-2">Puppet</a>
+<ul class="sectlevel2">
+<li><a href="#overview-7">Overview</a></li>
+<li><a href="#options">Options</a></li>
+<li><a href="#examples-2">Examples</a></li>
+<li><a href="#clustered">Clustered</a></li>
+<li><a href="#puppet-script-management">Puppet script management</a></li>
 </ul>
 </li>
 <li><a href="#appendices-2">Appendices</a>
@@ -7944,11 +7970,11 @@ span.icon > .fa {
 <h2 id="links"><a class="anchor" href="#links"></a>Links</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="span-class-icon-i-class-fa-fa-home-i-span-a-href-http-spohnan-github-io-geowave-site-a"><a class="anchor" href="#span-class-icon-i-class-fa-fa-home-i-span-a-href-http-spohnan-github-io-geowave-site-a"></a><span class="icon"><i class="fa fa-home"></i></span> <a href="http://spohnan.github.io/geowave">Site</a></h3>
+<h3 id="span-class-icon-i-class-fa-fa-home-i-span-a-href-http-ngageoint-github-io-geowave-site-a"><a class="anchor" href="#span-class-icon-i-class-fa-fa-home-i-span-a-href-http-ngageoint-github-io-geowave-site-a"></a><span class="icon"><i class="fa fa-home"></i></span> <a href="http://ngageoint.github.io/geowave/">Site</a></h3>
 
 </div>
 <div class="sect2">
-<h3 id="span-class-icon-i-class-fa-fa-file-code-o-i-span-a-href-http-spohnan-github-io-geowave-apidocs-index-html-javadoc-a"><a class="anchor" href="#span-class-icon-i-class-fa-fa-file-code-o-i-span-a-href-http-spohnan-github-io-geowave-apidocs-index-html-javadoc-a"></a><span class="icon"><i class="fa fa-file-code-o"></i></span> <a href="http://spohnan.github.io/geowave/apidocs/index.html">Javadoc</a></h3>
+<h3 id="span-class-icon-i-class-fa-fa-file-code-o-i-span-a-href-http-ngageoint-github-io-geowave-apidocs-index-html-javadoc-a"><a class="anchor" href="#span-class-icon-i-class-fa-fa-file-code-o-i-span-a-href-http-ngageoint-github-io-geowave-apidocs-index-html-javadoc-a"></a><span class="icon"><i class="fa fa-file-code-o"></i></span> <a href="http://ngageoint.github.io/geowave/apidocs/index.html">Javadoc</a></h3>
 
 </div>
 <div class="sect2">
@@ -7956,7 +7982,7 @@ span.icon > .fa {
 
 </div>
 <div class="sect2">
-<h3 id="span-class-icon-i-class-fa-fa-file-archive-o-i-span-a-href-http-spohnan-github-io-geowave-packages-html-rpms-a"><a class="anchor" href="#span-class-icon-i-class-fa-fa-file-archive-o-i-span-a-href-http-spohnan-github-io-geowave-packages-html-rpms-a"></a><span class="icon"><i class="fa fa-file-archive-o"></i></span> <a href="http://spohnan.github.io/geowave/packages.html">RPMs</a></h3>
+<h3 id="span-class-icon-i-class-fa-fa-file-archive-o-i-span-a-href-http-ngageoint-github-io-geowave-packages-html-rpms-a"><a class="anchor" href="#span-class-icon-i-class-fa-fa-file-archive-o-i-span-a-href-http-ngageoint-github-io-geowave-packages-html-rpms-a"></a><span class="icon"><i class="fa fa-file-archive-o"></i></span> <a href="http://ngageoint.github.io/geowave/packages.html">RPMs</a></h3>
 <div style="page-break-after: always;"></div>
 </div>
 </div>
@@ -8653,7 +8679,7 @@ The plugin framework is created in geowave-ingest, and the supported types are i
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-You should either edit the geowave/pom.xml file for the correct accumulo, hadoop, geotools, and geoserver versions,
+You should either edit the geowave/pom.xml file for the correct Accumulo, Hadoop, GeoTools, and GeoServer versions,
 or supply command line parameters to override them.
 </td>
 </tr>
@@ -8675,34 +8701,69 @@ $ mvn clean install</code></pre>
 $ mvn package -Pingest-singlejar</code></pre>
 </div>
 </div>
-</div>
-<div class="sect3">
-<h4 id="running-ingest"><a class="anchor" href="#running-ingest"></a>Running ingest</h4>
 <div class="paragraph">
-<p>The ingest file is now packaged in target</p>
+<p>The ingest file is now packaged in target. When packaged for installation there will be a wrapper script named geowave-ingest
+that will be installed in $PATH. In a development environment were this script has not been installed you can use the
+artifact directly with the command <code><code>java -jar geowave-types-VERSION-ingest-tool.jar &lt;operation&gt; &lt;options&gt;</code></code></p>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-bash" data-lang="bash">$ java -jar geowave-types-0.8.0-SNAPSHOT-ingest-tool.jar
-usage: &lt;operation&gt; &lt;options&gt;
-
-Operations:
- -clear         clear ALL data from a GeoWave namespace, this actually
-                deletes Accumulo tables prefixed by the given namespace
- -hdfsingest    copy supported files from local file system to HDFS and
-                ingest from HDFS
- -hdfsstage     stage supported files in local file system to HDFS
- -localingest   ingest supported files in local file system directly,
-                without using HDFS
- -poststage     ingest supported files that already exist in HDFS
-
-Options are specific to operation choice. Use &lt;operation&gt; -h for help.</code></pre>
 </div>
+</div>
+<div class="sect2">
+<h3 id="cmd-geowave-ingest"><a class="anchor" href="#cmd-geowave-ingest"></a>Cmd: geowave-ingest</h3>
+<div class="paragraph">
+<p>NAME</p>
 </div>
 <div class="paragraph">
-<p>Okay, so what do these options mean? We will go into each in more detail, but basically the ingest plugin supports two
-types of ingest. Local, and HDFS. Which you use probably depends on the type and amount of data you need to load. The
-framework handles abstracting across the two methods, so you only need to write the code once.</p>
+<p>geowave-ingest - Ingest data from a local file system or HDFS into GeoWave</p>
+</div>
+<div class="paragraph">
+<p>SYNOPSIS</p>
+</div>
+<div class="paragraph">
+<p><strong>geowave-ingest</strong> &lt;operation&gt; &lt;options&gt;</p>
+</div>
+<div class="paragraph">
+<p>DESCRIPTION</p>
+</div>
+<div class="paragraph">
+<p>The geowave-ingest(1) command will ingest data from a local file system or HDFS into GeoWave</p>
+</div>
+<div class="paragraph">
+<p>OPERATIONS</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">-clear</dt>
+<dd>
+<p>Clear ALL data from a GeoWave namespace, this actually deletes Accumulo tables prefixed by the given namespace</p>
+</dd>
+<dt class="hdlist1">-hdfsingest</dt>
+<dd>
+<p>Copy supported files from local file system to HDFS and ingest from HDFS</p>
+</dd>
+<dt class="hdlist1">-hdfsstage</dt>
+<dd>
+<p>stage supported files in local file system to HDFS</p>
+</dd>
+<dt class="hdlist1">-localingest</dt>
+<dd>
+<p>ingest supported files in local file system directly, without using HDFS</p>
+</dd>
+<dt class="hdlist1">-poststage</dt>
+<dd>
+<p>ingest supported files that already exist in HDFS</p>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>ADDITIONAL</p>
+</div>
+<div class="paragraph">
+<p>Options are specific to operation choice. Use &lt;operation&gt; -h for help.</p>
+</div>
+<div class="paragraph">
+<p>The ingest plugin supports two types of ingest, Local and HDFS. Which you use probably depends on the type and amount of
+data you need to load. The framework handles abstracting across the two methods, so you only need to write the code once.</p>
 </div>
 <div class="paragraph">
 <p>The hdfsingest option is actually just the hdfsstage and poststage methods chained together. Using them separately is
@@ -8717,173 +8778,181 @@ on file extension, and then a secondary filter can be created based on reading t
 <p>The intent is to allow the user to point to a directory of files and for the framework to discover and ingest all
 possible types. The user can explicitly select only certain plugins if they need to narrow this down.</p>
 </div>
+</div>
+<div class="sect2">
+<h3 id="operation-clear"><a class="anchor" href="#operation-clear"></a>Operation: -clear</h3>
 <div class="paragraph">
-<p>Now for more details:</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="option-clear"><a class="anchor" href="#option-clear"></a>Option: -clear</h4>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-bash" data-lang="bash">$ java -jar geowave-types-0.8.0-SNAPSHOT-ingest-tool.jar -clear -h
-usage: -clear &lt;options&gt;
-
-Options:
- -c,--clear               Clear ALL data stored with the same prefix as
-                          this namespace (optional; default is to append
-                          data to the namespace if it exists)
- -h,--help                Display help
- -i,--instance-id &lt;arg&gt;   The Accumulo instance ID
- -index,--index &lt;arg&gt;     The type of index, either 'spatial' or
-                          'spatial-temporal' (optional; default is
-                          'spatial')
- -l,--list                List the available ingest types
- -n,--namespace &lt;arg&gt;     The table namespace (optional; default is no
-                          namespace)
- -p,--password &lt;arg&gt;      The password for the user
- -t,--types &lt;arg&gt;         Explicitly set the ingest type by name (or
-                          multiple comma-delimited types), if not set all
-                          available ingest types will be used
- -u,--user &lt;arg&gt;          A valid Accumulo user ID
- -v,--visibility &lt;arg&gt;    The visiblity of the data ingested (optional;
-                          default is 'public')
- -z,--zookeepers &lt;arg&gt;    A comma-separated list of zookeeper servers that
-                          an Accumulo instance is using</code></pre>
-</div>
+<p>NAME</p>
 </div>
 <div class="paragraph">
-<p>This option will delete all geowave data stored in accumulo for the
-provided dataset. Required parameters for this command are</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>zookeepers</p>
-</li>
-<li>
-<p>accumulo instance id</p>
-</li>
-<li>
-<p>accumulo user id</p>
-</li>
-<li>
-<p>accumulo password</p>
-</li>
-<li>
-<p>geowave namespace</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="option-localingest"><a class="anchor" href="#option-localingest"></a>Option: -localingest</h4>
-<div class="paragraph">
-<p>This runs the ingest code (parse to features, load features to accumulo)
-all locally.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-bash" data-lang="bash">$ java -jar geowave-types-0.8.0-SNAPSHOT-ingest-tool.jar  -localingest -h
-usage: -localingest &lt;options&gt;
-
-Options:
- -b,--base &lt;arg&gt;          Base input file or directory to crawl with one
-                          of the supported ingest types
- -c,--clear               Clear ALL data stored with the same prefix as
-                          this namespace (optional; default is to append
-                          data to the namespace if it exists)
- -h,--help                Display help
- -i,--instance-id &lt;arg&gt;   The Accumulo instance ID
- -index,--index &lt;arg&gt;     The type of index, either 'spatial' or
-                          'spatial-temporal' (optional; default is
-                          'spatial')
- -l,--list                List the available ingest types
- -n,--namespace &lt;arg&gt;     The table namespace (optional; default is no
-                          namespace)
- -p,--password &lt;arg&gt;      The password for the user
- -t,--types &lt;arg&gt;         Explicitly set the ingest type by name (or
-                          multiple comma-delimited types), if not set all
-                          available ingest types will be used
- -u,--user &lt;arg&gt;          A valid Accumulo user ID
- -v,--visibility &lt;arg&gt;    The visiblity of the data ingested (optional;
-                          default is 'public')
- -x,--extension &lt;arg&gt;     individual or comma-delimited set of file
-                          extensions to accept (optional)
- -z,--zookeepers &lt;arg&gt;    A comma-separated list of zookeeper servers that
-                          an Accumulo instance is using</code></pre>
-</div>
+<p>geowave-ingest-clear - Delete existing GeoWave content from Accumulo</p>
 </div>
 <div class="paragraph">
-<p>Most of the options should be pretty self explanatory. The index type uses one of the two predefined index
-implementations. You can perform temporal lookup/filtering with either, but the spatial-temporal includes indexing in
-the primary index - so will be more performant if spatial extents are commonly used when querying data.</p>
+<p>SYNOPSIS</p>
 </div>
 <div class="paragraph">
-<p>Visibility is passed to Accumulo as a string, so you should put whatever you want in here.</p>
+<p><strong>geowave-ingest -clear</strong> &lt;options&gt;</p>
 </div>
 <div class="paragraph">
-<p>The namespace option is the geowave namespace; this will be the prefix of the geowave tables in Accumulo. There are a
-few rules for this that derive from geotools/geoserver as well as accumulo. To keep it simple if you only use alphabet
-characters and "_" (underscore) you will be fine.</p>
+<p>DESCRIPTION</p>
 </div>
 <div class="paragraph">
-<p>The extensions argument allows you to override the plugin types, narrowing the scope of what is passed to the plugins</p>
+<p>The geowave-ingest -clear(1) operator will delete all GeoWave data stored in Accumulo for the provided data set</p>
 </div>
 <div class="paragraph">
-<p>The types argument allows you to explicitly only use certain plugins.</p>
+<p>OPTIONS</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">-c, --clear</dt>
+<dd>
+<p>Clear ALL data stored with the same prefix as this namespace (optional; default is to append data to the namespace if it exists)</p>
+</dd>
+<dt class="hdlist1">-dim, --dimensionality &lt;arg&gt;</dt>
+<dd>
+<p>The dimensionality type for the index, either 'spatial' or 'spatial-temporal' (optional; default is 'spatial')</p>
+</dd>
+<dt class="hdlist1">-h, --help</dt>
+<dd>
+<p>Display help</p>
+</dd>
+<dt class="hdlist1">-i, --instance-id &lt;arg&gt;</dt>
+<dd>
+<p>The Accumulo instance ID</p>
+</dd>
+<dt class="hdlist1">-l, --list</dt>
+<dd>
+<p>List the available ingest types</p>
+</dd>
+<dt class="hdlist1">-n, --namespace &lt;arg&gt;</dt>
+<dd>
+<p>The table namespace (optional; default is no namespace)</p>
+</dd>
+<dt class="hdlist1">-p, --password &lt;arg&gt;</dt>
+<dd>
+<p>The password for the user</p>
+</dd>
+<dt class="hdlist1">-t, --types &lt;arg&gt;</dt>
+<dd>
+<p>Explicitly set the ingest type by name (or multiple comma-delimited types), if not set all available ingest types will be used</p>
+</dd>
+<dt class="hdlist1">-u, --user &lt;arg&gt;</dt>
+<dd>
+<p>A valid Accumulo user ID</p>
+</dd>
+<dt class="hdlist1">-v, --visibility &lt;arg&gt;</dt>
+<dd>
+<p>The visibility of the data ingested (optional; default is 'public')</p>
+</dd>
+<dt class="hdlist1">-z, --zookeepers &lt;arg&gt;</dt>
+<dd>
+<p>A comma-separated list of zookeeper servers that an Accumulo instance is using</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect2">
+<h3 id="operation-hdfsingest"><a class="anchor" href="#operation-hdfsingest"></a>Operation: -hdfsingest</h3>
+<div class="paragraph">
+<p>NAME</p>
 </div>
 <div class="paragraph">
-<p>Finally, the base directory is the root directory that will be scanned on the local system for files to ingest. The
-process will scan all subdirectories under the provided directory.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="option-hdfsingest"><a class="anchor" href="#option-hdfsingest"></a>Option -hdfsingest</h4>
-<div class="paragraph">
-<p>This option first copies the local files to an Avro record in HDFS, then executes the ingest process as a map-reduce
-job. Data is ingested into Geowave using the GeowaveInputFormat. This is likely to be the fastest ingest method overall
-for data sets of any notable size (or if they have a large ingest/transform cost).</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-bash" data-lang="bash">$ java -jar geowave-types-0.8.0-SNAPSHOT-ingest-tool.jar  -hdfsingest -h
-usage: -hdfsingest &lt;options&gt;
-
-Options:
- -b,--base &lt;arg&gt;          Base input file or directory to crawl with one
-                          of the supported ingest types
- -c,--clear               Clear ALL data stored with the same prefix as
-                          this namespace (optional; default is to append
-                          data to the namespace if it exists)
- -h,--help                Display help
- -hdfs &lt;arg&gt;              HDFS hostname and port in the format
-                          hostname:port
- -hdfsbase &lt;arg&gt;          fully qualified path to the base directory in
-                          hdfs
- -i,--instance-id &lt;arg&gt;   The Accumulo instance ID
- -index,--index &lt;arg&gt;     The type of index, either 'spatial' or
-                          'spatial-temporal' (optional; default is
-                          'spatial')
- -jobtracker &lt;arg&gt;        Hadoop job tracker hostname and port in the
-                          format hostname:port
- -l,--list                List the available ingest types
- -n,--namespace &lt;arg&gt;     The table namespace (optional; default is no
-                          namespace)
- -p,--password &lt;arg&gt;      The password for the user
- -t,--types &lt;arg&gt;         Explicitly set the ingest type by name (or
-                          multiple comma-delimited types), if not set all
-                          available ingest types will be used
- -u,--user &lt;arg&gt;          A valid Accumulo user ID
- -v,--visibility &lt;arg&gt;    The visiblity of the data ingested (optional;
-                          default is 'public')
- -x,--extension &lt;arg&gt;     individual or comma-delimited set of file
-                          extensions to accept (optional)
- -z,--zookeepers &lt;arg&gt;    A comma-separated list of zookeeper servers that
-                          an Accumulo instance is using</code></pre>
-</div>
+<p>geowave-ingest-hdfsingest - Load content from an HDFS file system</p>
 </div>
 <div class="paragraph">
-<p>The options here are, for the most part, same as for localingest, with a few additions.</p>
+<p>SYNOPSIS</p>
+</div>
+<div class="paragraph">
+<p><strong>geowave-ingest -hdfsingest</strong> &lt;options&gt;</p>
+</div>
+<div class="paragraph">
+<p>DESCRIPTION</p>
+</div>
+<div class="paragraph">
+<p>The geowave-ingest -hdfsingest(1) operator first copies the local files to an Avro record in HDFS, then executes the
+ingest process as a map-reduce job. Data is ingested into Geowave using the GeowaveInputFormat. This is likely to be
+the fastest ingest method overall for data sets of any notable size (or if they have a large ingest/transform cost).</p>
+</div>
+<div class="paragraph">
+<p>OPTIONS</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">-b, --base &lt;arg&gt;</dt>
+<dd>
+<p>Base input file or directory to crawl with one of the supported ingest types</p>
+</dd>
+<dt class="hdlist1">-c, --clear</dt>
+<dd>
+<p>Clear ALL data stored with the same prefix as this namespace (optional; default is to append data to the namespace if it exists)</p>
+</dd>
+<dt class="hdlist1">-dim, --dimensionality &lt;arg&gt;</dt>
+<dd>
+<p>The dimensionality type for the index, either 'spatial' or 'spatial-temporal' (optional; default is 'spatial')</p>
+</dd>
+<dt class="hdlist1">-h, --help</dt>
+<dd>
+<p>Display help</p>
+</dd>
+<dt class="hdlist1">-hdfs &lt;arg&gt;</dt>
+<dd>
+<p>HDFS hostname and port in the format hostname:port</p>
+</dd>
+<dt class="hdlist1">-hdfsbase &lt;arg&gt;</dt>
+<dd>
+<p>The fully qualified path to the base directory in HDFS</p>
+</dd>
+<dt class="hdlist1">-i, --instance-id &lt;arg&gt;</dt>
+<dd>
+<p>The Accumulo instance ID</p>
+</dd>
+<dt class="hdlist1">-jobtracker &lt;arg&gt;</dt>
+<dd>
+<p>Hadoop job tracker hostname and port in the format hostname:port</p>
+</dd>
+<dt class="hdlist1">-l, --list</dt>
+<dd>
+<p>List the available ingest types</p>
+</dd>
+<dt class="hdlist1">-n, --namespace &lt;arg&gt;</dt>
+<dd>
+<p>The table namespace (optional; default is no namespace)</p>
+</dd>
+<dt class="hdlist1">-p, --password &lt;arg&gt;</dt>
+<dd>
+<p>The password for the user</p>
+</dd>
+<dt class="hdlist1">-resourceman &lt;arg&gt;</dt>
+<dd>
+<p>YARN resource manager hostname and port in the format hostname:port</p>
+</dd>
+<dt class="hdlist1">-t, --types &lt;arg&gt;</dt>
+<dd>
+<p>Explicitly set the ingest type by name (or multiple comma-delimited types), if not set all available ingest types will be used</p>
+</dd>
+<dt class="hdlist1">-u, --user &lt;arg&gt;</dt>
+<dd>
+<p>A valid Accumulo user ID</p>
+</dd>
+<dt class="hdlist1">-v, --visibility &lt;arg&gt;</dt>
+<dd>
+<p>The visibility of the data ingested (optional; default is 'public')</p>
+</dd>
+<dt class="hdlist1">-x, --extension &lt;arg&gt;</dt>
+<dd>
+<p>Individual or comma-delimited set of file extensions to accept (optional)</p>
+</dd>
+<dt class="hdlist1">-z, --zookeepers &lt;arg&gt;</dt>
+<dd>
+<p>A comma-separated list of zookeeper servers that an Accumulo instance is using</p>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>ADDITIONAL</p>
+</div>
+<div class="paragraph">
+<p>The options here are, for the most part, same as for <strong>geowave-ingest -localingest</strong>, with a few additions.</p>
 </div>
 <div class="paragraph">
 <p>The hdfs argument should be the hostname and port, so something like "hdfs-namenode.cluster1.com:8020".</p>
@@ -8898,35 +8967,304 @@ option) subdirectory under this base directory.</p>
 </div>
 <div class="paragraph">
 <p>The hdfsstage and poststage options will just be subsets of this comment; the first creating an avro file in hdfs,
-the second reading this avro file and ingesting into geowave</p>
+the second reading this avro file and ingesting into GeoWave</p>
 </div>
+</div>
+<div class="sect2">
+<h3 id="operation-hdfsstage"><a class="anchor" href="#operation-hdfsstage"></a>Operation: -hdfsstage</h3>
+<div class="paragraph">
+<p>NAME</p>
+</div>
+<div class="paragraph">
+<p>geowave-ingest-hdfsstage - Load supported content from a local file system into HDFS</p>
+</div>
+<div class="paragraph">
+<p>SYNOPSIS</p>
+</div>
+<div class="paragraph">
+<p><strong>geowave-ingest -hdfsstage</strong> &lt;options&gt;</p>
+</div>
+<div class="paragraph">
+<p>DESCRIPTION</p>
+</div>
+<div class="paragraph">
+<p>The geowave-ingest -hdfsstage(1) operator copies the local files to an Avro record in HDFS</p>
+</div>
+<div class="paragraph">
+<p>OPTIONS</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">-b,--base &lt;arg&gt;</dt>
+<dd>
+<p>Base input file or directory to crawl with one of the supported ingest types</p>
+</dd>
+<dt class="hdlist1">-h,--help</dt>
+<dd>
+<p>Display help</p>
+</dd>
+<dt class="hdlist1">-hdfs &lt;arg&gt;</dt>
+<dd>
+<p>HDFS hostname and port in the format hostname:port</p>
+</dd>
+<dt class="hdlist1">-hdfsbase &lt;arg&gt;</dt>
+<dd>
+<p>Fully qualified path to the base directory in hdfs</p>
+</dd>
+<dt class="hdlist1">-l, --list</dt>
+<dd>
+<p>List the available ingest types</p>
+</dd>
+<dt class="hdlist1">-t, --types &lt;arg&gt;</dt>
+<dd>
+<p>Explicitly set the ingest type by name (or multiple comma-delimited types), if not set all available ingest types will be used</p>
+</dd>
+<dt class="hdlist1">-x, --extension &lt;arg&gt;</dt>
+<dd>
+<p>Individual or comma-delimited set of file extensions to accept (optional)</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect2">
+<h3 id="operation-localingest"><a class="anchor" href="#operation-localingest"></a>Operation: -localingest</h3>
+<div class="paragraph">
+<p>NAME</p>
+</div>
+<div class="paragraph">
+<p>geowave-ingest-localingest - Load content from local file system</p>
+</div>
+<div class="paragraph">
+<p>SYNOPSIS</p>
+</div>
+<div class="paragraph">
+<p><strong>geowave-ingest -localingest</strong> &lt;options&gt;</p>
+</div>
+<div class="paragraph">
+<p>DESCRIPTION</p>
+</div>
+<div class="paragraph">
+<p>The geowave-ingest -localingest(1) operator will run the ingest code (parse to features, load features to accumulo)
+against local file system content.</p>
+</div>
+<div class="paragraph">
+<p>OPTIONS</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">-b, --base &lt;arg&gt;</dt>
+<dd>
+<p>Base input file or directory to crawl with one of the supported ingest types</p>
+</dd>
+<dt class="hdlist1">-c, --clear</dt>
+<dd>
+<p>Clear ALL data stored with the same prefix as this namespace (optional; default is to append data to the namespace if it exists)</p>
+</dd>
+<dt class="hdlist1">-dim, --dimensionality &lt;arg&gt;</dt>
+<dd>
+<p>The dimensionality type for the index, either 'spatial' or 'spatial-temporal' (optional; default is 'spatial')</p>
+</dd>
+<dt class="hdlist1">-h, --help</dt>
+<dd>
+<p>Display help</p>
+</dd>
+<dt class="hdlist1">-i, --instance-id &lt;arg&gt;</dt>
+<dd>
+<p>The Accumulo instance ID</p>
+</dd>
+<dt class="hdlist1">-l, --list</dt>
+<dd>
+<p>List the available ingest types</p>
+</dd>
+<dt class="hdlist1">-n, --namespace &lt;arg&gt;</dt>
+<dd>
+<p>The table namespace (optional; default is no namespace)</p>
+</dd>
+<dt class="hdlist1">-p, --password &lt;arg&gt;</dt>
+<dd>
+<p>The password for the user</p>
+</dd>
+<dt class="hdlist1">-t, --types &lt;arg&gt;</dt>
+<dd>
+<p>Explicitly set the ingest type by name (or multiple comma-delimited types), if not set all available ingest types will be used</p>
+</dd>
+<dt class="hdlist1">-u, --user &lt;arg&gt;</dt>
+<dd>
+<p>A valid Accumulo user ID</p>
+</dd>
+<dt class="hdlist1">-v, --visibility &lt;arg&gt;</dt>
+<dd>
+<p>The visibility of the data ingested (optional; default is 'public')</p>
+</dd>
+<dt class="hdlist1">-x, --extension &lt;arg&gt;</dt>
+<dd>
+<p>Individual or comma-delimited set of file extensions to accept (optional)</p>
+</dd>
+<dt class="hdlist1">-z, --zookeepers &lt;arg&gt;</dt>
+<dd>
+<p>A comma-separated list of zookeeper servers that an Accumulo instance is using</p>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>ADDITIONAL</p>
+</div>
+<div class="paragraph">
+<p>The index type uses one of the two predefined index implementations. You can perform temporal lookup/filtering with
+either, but the spatial-temporal includes indexing in the primary index - so will be more performant if spatial extents
+are commonly used when querying data.</p>
+</div>
+<div class="paragraph">
+<p>Visibility is passed to Accumulo as a string, so you should put whatever you want in here.</p>
+</div>
+<div class="paragraph">
+<p>The namespace option is the GeoWave namespace; this will be the prefix of the GeoWave tables in Accumulo. There are a
+few rules for this that derive from geotools/geoserver as well as Accumulo. To keep it simple if you only use alphabet
+characters and "_" (underscore) you will be fine.</p>
+</div>
+<div class="paragraph">
+<p>The extensions argument allows you to override the plugin types, narrowing the scope of what is passed to the plugins</p>
+</div>
+<div class="paragraph">
+<p>The types argument allows you to explicitly only use certain plugins.</p>
+</div>
+<div class="paragraph">
+<p>Finally, the base directory is the root directory that will be scanned on the local system for files to ingest. The
+process will scan all subdirectories under the provided directory.</p>
+</div>
+<div class="paragraph">
+<p>EXAMPLES</p>
+</div>
+<div class="paragraph">
+<p>List all of the currently registered as ingest type plugins:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><strong>geowave-ingest -localingest --list</strong></dt>
+<dd>
+<p>geotools-vector:
+     all file-based vector datastores supported within geotools</p>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>tdrive:
+     files from Microsoft Research T-Drive trajectory data set</p>
+</div>
+<div class="paragraph">
+<p>geolife:
+     files from Microsoft Research GeoLife trajectory data set</p>
+</div>
+<div class="paragraph">
+<p>gpx:
+     xml files adhering to the schema of gps exchange format</p>
+</div>
+<div class="paragraph">
+<p>geotools-raster:
+     all file-based raster formats supported within geotools</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Load some load data</dt>
+<dd>
+<p>geowave-ingest -localingest -b ./ingest -i instance -n adminborders -p pass -t geotools-vector -u user -z zoo-1:2181</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect2">
+<h3 id="operation-poststage"><a class="anchor" href="#operation-poststage"></a>Operation: -poststage</h3>
+<div class="paragraph">
+<p>NAME</p>
+</div>
+<div class="paragraph">
+<p>geowave-ingest-poststage - Ingest supported content that has already been staged in HDFS</p>
+</div>
+<div class="paragraph">
+<p>SYNOPSIS</p>
+</div>
+<div class="paragraph">
+<p><strong>geowave-ingest -poststage</strong> &lt;options&gt;</p>
+</div>
+<div class="paragraph">
+<p>DESCRIPTION</p>
+</div>
+<div class="paragraph">
+<p>The geowave-ingest -poststage(1) operator executes the ingest process as a map-reduce job using data that has already
+been staged in an HDFS file system</p>
+</div>
+<div class="paragraph">
+<p>OPTIONS</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">-c, --clear</dt>
+<dd>
+<p>Clear ALL data stored with the same prefix as this namespace (optional; default is to append data to the namespace if it exists)</p>
+</dd>
+<dt class="hdlist1">-dim, --dimensionality &lt;arg&gt;</dt>
+<dd>
+<p>The dimensionality type for the index, either 'spatial' or 'spatial-temporal' (optional; default is 'spatial')</p>
+</dd>
+<dt class="hdlist1">-h, --help</dt>
+<dd>
+<p>Display help</p>
+</dd>
+<dt class="hdlist1">-hdfs &lt;arg&gt;</dt>
+<dd>
+<p>HDFS hostname and port in the format hostname:port</p>
+</dd>
+<dt class="hdlist1">-hdfsbase &lt;arg&gt;</dt>
+<dd>
+<p>Fully qualified path to the base directory in HDFS</p>
+</dd>
+<dt class="hdlist1">-i, --instance-id &lt;arg&gt;</dt>
+<dd>
+<p>The Accumulo instance ID</p>
+</dd>
+<dt class="hdlist1">-jobtracker &lt;arg&gt;</dt>
+<dd>
+<p>Hadoop job tracker hostname and port in the format hostname:port</p>
+</dd>
+<dt class="hdlist1">-l, --list</dt>
+<dd>
+<p>List the available ingest types</p>
+</dd>
+<dt class="hdlist1">-n, --namespace &lt;arg&gt;</dt>
+<dd>
+<p>The table namespace (optional; default is no namespace)</p>
+</dd>
+<dt class="hdlist1">-p, --password &lt;arg&gt;</dt>
+<dd>
+<p>The password for the user</p>
+</dd>
+<dt class="hdlist1">-resourceman &lt;arg&gt;</dt>
+<dd>
+<p>YARN resource manager hostname and port in the format hostname:port</p>
+</dd>
+<dt class="hdlist1">-t, --types &lt;arg&gt;</dt>
+<dd>
+<p>Explicitly set the ingest type by name (or multiple comma-delimited types), if not set  all available ingest types will be used</p>
+</dd>
+<dt class="hdlist1">-u, --user &lt;arg&gt;</dt>
+<dd>
+<p>A valid Accumulo user ID</p>
+</dd>
+<dt class="hdlist1">-v, --visibility &lt;arg&gt;</dt>
+<dd>
+<p>The visibility of the data ingested (optional; default is 'public')</p>
+</dd>
+<dt class="hdlist1">-z,--zookeepers &lt;arg&gt;</dt>
+<dd>
+<p>A comma-separated list of zookeeper servers that an Accumulo instance is using</p>
+</dd>
+</dl>
 </div>
 <div class="sect3">
 <h4 id="ingesting-all-the-things"><a class="anchor" href="#ingesting-all-the-things"></a>Ingesting all the things</h4>
 <div class="paragraph">
-<p>What can we ingest?</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-bash" data-lang="bash">$ java -jar geowave-types-0.8.0-SNAPSHOT-ingest-tool.jar  -localingest --list
-Available ingest types currently registered as plugins:
-
-tdrive:
-     files from Microsoft Research T-Drive trajectory data set
-
-geotools:
-     all file-based datastores supported within geotools
-
-geolife:
-     files from Microsoft Research GeoLife trajectory data set
-
-gpx:
-     xml files adhering to the schema of gps exchange format</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Let&#8217;s start out with the geotools datastore; this wraps a bunch of geotools supported formats. We will use the
-shapefile capability for our example here.</p>
+<p>We can ingest any data type that has been listed as an ingest plugin. Let&#8217;s start out with the GeoTools datastore; this
+wraps a bunch of GeoTools supported formats. We will use the shapefile capability for our example here.</p>
 </div>
 </div>
 <div class="sect3">
@@ -8937,7 +9275,7 @@ shapefile capability for our example here.</p>
 </div>
 <div class="paragraph">
 <p>Let&#8217;s download the Admin 0 - Countries shapefile:
-http//www.naturalearthdata.com/download/50m/cultural/ne_50m_admin_0_countries.zip[ne_50m_admin_0_countries.zip]</p>
+<a href="http://naciscdn.org/naturalearth/50m/cultural/ne_50m_admin_0_countries.zip">ne_50m_admin_0_countries.zip</a></p>
 </div>
 <div class="paragraph">
 <p>Okay, let&#8217;s ingest this. I&#8217;ll take some liberty with the file locations,
@@ -8951,7 +9289,7 @@ $ cd ingest
 $ unzip ne_50m_admin_0_countries.zip
 $ rm ne_50m_admin_0_countries.zip
 $ cd ..
-$ java -jar geowave-types-0.8.0-SNAPSHOT-ingest-tool.jar -localingest -b ./ingest -i instance -n adminborders -p pass -t geotools-vector -u user -z zooo-1:2181</code></pre>
+$ geowave-ingest -localingest -b ./ingest -i ACCUMULO_INSTANCE_NAME -n geowave.50m_admin_0_countries -t geotools-vector -u USERNAME -p PASSWORD -z zoo-1:2181</code></pre>
 </div>
 </div>
 </div>
@@ -9246,7 +9584,7 @@ not very efficient (SimpleIngest.java).</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-bash" data-lang="bash">$ java -jar geowave-types-0.8.0-SNAPSHOT-ingest-tool.jar  -localingest --list
+<pre class="highlightjs highlight"><code class="language-bash" data-lang="bash">$ geowave-ingest -localingest --list
 Available ingest types currently registered as plugins:
 
 tdrive:
@@ -9474,22 +9812,105 @@ of an alternate property is achieved by setting the associated attribute descrip
 </div>
 </div>
 <div class="sect1">
-<h2 id="installation-2"><a class="anchor" href="#installation-2"></a>Installation</h2>
+<h2 id="installation-from-rpm"><a class="anchor" href="#installation-from-rpm"></a>Installation from RPM</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="overview-4"><a class="anchor" href="#overview-4"></a>Overview</h3>
+<div class="paragraph">
+<p>There is a public <a href="http://s3.amazonaws.com/geowave-rpms/index.html">GeoWave RPM Repo</a> available with the following packages.
+As you&#8217;ll need to coordinate a restart of Accumulo to pick up changes to the GeoWave iterator classes the repos default to
+be disabled so you can keep auto updates enabled. When ready to do an update simply add <code>--enablerepo=geowave</code> to your
+command.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="examples"><a class="anchor" href="#examples"></a>Examples</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash" data-lang="bash"># Use GeoWave repo RPM to configure a host and search for GeoWave RPMs to install
+rpm -Uvh http://s3.amazonaws.com/geowave-rpms/release/noarch/geowave-repo-dev-1.0-3.noarch.rpm
+yum --enablerepo=geowave search geowave
+
+# Install GeoWave Accumulo iterator on a host (probably a namenode)
+yum --enablerepo=geowave install geowave-cdh5-accumulo
+
+# Update
+yum --enablerepo=geowave install geowave-*
+Restart Accumulo service</code></pre>
+</div>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<caption class="title">Table 1. GeoWave RPMs</caption>
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">geowave-cdh5-accumulo</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Accumulo Components</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">geowave-cdh5-core</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Core (home directory and geowave user)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">geowave-cdh5-docs</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Documentation (HTML, PDF and man pages)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">geowave-cdh5-ingest</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Ingest Tool</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">geowave-cdh5-jetty</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GeoServer Components</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">geowave-cdh5-puppet</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Puppet Scripts</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">geowave-cdh5-single-host</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">All GeoWave Components</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">geowave-repo</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GeoWave RPM Repo config file</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">geowave-repo-dev</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GeoWave Development RPM Repo config file</p></td>
+</tr>
+</tbody>
+</table>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="installation-from-source"><a class="anchor" href="#installation-from-source"></a>Installation from Source</h2>
 <div class="sectionbody">
 <div class="sect2">
 <h3 id="geoserver-2"><a class="anchor" href="#geoserver-2"></a>GeoServer</h3>
 <div class="sect3">
 <h4 id="geoserver-versions"><a class="anchor" href="#geoserver-versions"></a>GeoServer Versions</h4>
 <div class="paragraph">
-<p>GeoWave is currently built against Geoserver 2.5.2 and Geotools 11.2. The Geotools version will typically be linked to
-the geoserver version. If wish to deploy against a different version simply change the value in the pom and rebuild
-(see: building) - but no guarantees.</p>
+<p>GeoWave is currently built against GeoServer 2.6.1 and GeoTools 12.1 with the GeoTools version linked to the GeoServer
+version. If wish to deploy against a different version simply change the value in the pom and rebuild (see: building) -
+but no guarantees.</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="geoserver-install"><a class="anchor" href="#geoserver-install"></a>GeoServer Install</h4>
 <div class="paragraph">
-<p>First we need to build the geoserver plugin - from the geowave root directory:</p>
+<p>First we need to build the GeoServer plugin - from the GeoWave root directory:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -9498,16 +9919,16 @@ $ mvn package -Pgeotools-container-singlejar</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>let&#8217;s assume you have geoserver deployed in a tomcat container in
+<p>let&#8217;s assume you have GeoServer deployed in a Tomcat container in
 /opt/tomcat</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-bash" data-lang="bash">$ cp target/geowave-gt-0.7.0-geoserver-singlejar.jar /opt/tomcat/webapps/geoserver/WEB-INF/lib/</code></pre>
+<pre class="highlightjs highlight"><code class="language-bash" data-lang="bash">$ cp target/geowave-gt-*-geoserver-singlejar.jar /opt/tomcat/webapps/geoserver/WEB-INF/lib/</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>and re-start tomcat</p>
+<p>and re-start Tomcat</p>
 </div>
 </div>
 </div>
@@ -9531,40 +9952,71 @@ version simply change the value in the pom.</p>
 $ mvn package -Paccumulo-container-singlejar</code></pre>
 </div>
 </div>
-<div class="paragraph">
-<p>This distributable needs to be in the Accumulo classpath on every tablet server.</p>
+<div style="page-break-after: always;"></div>
 </div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1">There are (with Accumulo 1.5.x or greater) two out of the box ways of doing this</dt>
-<dd>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="accumulo-configuration"><a class="anchor" href="#accumulo-configuration"></a>Accumulo Configuration</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="overview-5"><a class="anchor" href="#overview-5"></a>Overview</h3>
+<div class="paragraph">
+<p>The recommended Accumulo configuration for GeoWave requires several manual configuration steps but isolates the GeoWave
+libraries in application specific classpath(s) reducing the possibility of dependency conflict issues. A single user for
+all of geowave data or a user per data type are two of the many local configuration options just ensure each namespace
+containing GeoWave tables is configured to pick up the geowave-accumulo.jar.</p>
+</div>
+<div class="sect3">
+<h4 id="procedure"><a class="anchor" href="#procedure"></a>Procedure</h4>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Copy the jar into the $ACCUMULO_HOME/lib/ext/</p>
+<p>Create a user and namespace</p>
 </li>
 <li>
-<p>Copy the jar into a HDFS directory that has been registered in the $ACCUMULO_HOME/conf/accumulo-site.xml file under
-general.vfs.classpaths. See <a href="https://issues.apache.org/jira/browse/ACCUMULO-708">ACCUMULO-708</a> for more information.</p>
+<p>Grant the user ownership permissions on all tables created within the application namespace</p>
+</li>
+<li>
+<p>Create an application or data set specific classpath</p>
+</li>
+<li>
+<p>Configure all tables within the namespace to use the application classpath</p>
+</li>
+<li>
+<p>Configure GeoWave transaction support</p>
 </li>
 </ol>
 </div>
-</dd>
-</dl>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash" data-lang="bash">accumulo shell -u root
+createuser geowave <i class="conum" data-value="1"></i><b>(1)</b>
+createnamespace geowave
+grant NameSpace.CREATE_TABLE -ns geowave -u geowave
+config -s general.vfs.context.classpath.geowave=hdfs://NAME_NODE_FQDN:8020/accumulo/classpath/geowave/[^.].*.jar
+config -ns geowave -s table.classpath.context=geowave
+exit <i class="conum" data-value="2"></i><b>(2)</b>
+# From the node with the GeoWave application server installed
+java -cp "/usr/local/geowave/geoserver/webapps/geoserver/WEB-INF/lib/*" mil.nga.giat.geowave.vector.plugin.GeoWaveGTDataStore -z ZOOKEEPER_NODE:2181 -i accumulo -u root -p ROOT_PASSWORD -n geowave -m 20</code></pre>
 </div>
-<div class="admonitionblock tip">
+</div>
+<div class="colist arabic">
 <table>
 <tr>
-<td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
-</td>
-<td class="content">
-<div class="title">Dependency versions</div>
-GeoWave is currently (as of v 0.8.1) built against Accumulo 1.5.1, Geoserver 2.5.2, and Geotools 11.2.
-    If this doesn&#8217;t match the environment you are deploying to be sure to change these values in the parent pom.xml, located in the root of the GeoWave project.
-</td>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>You&#8217;ll be prompted for a password</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Done with Accumulo specific configs</td>
 </tr>
 </table>
+</div>
+<div class="paragraph">
+<p>These manual configuration steps have to be performed once after the first install of GeoWave. After the initial install you
+may elect to do further user and namespace creation and configuring to provide isolation between groups and data sets</p>
 </div>
 <div style="page-break-after: always;"></div>
 </div>
@@ -9669,7 +10121,7 @@ location of the cygpath binary provided by cygwin then is should work. Eclipse a
 <h2 id="documentation-2"><a class="anchor" href="#documentation-2"></a>Documentation</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="overview-4"><a class="anchor" href="#overview-4"></a>Overview</h3>
+<h3 id="overview-6"><a class="anchor" href="#overview-6"></a>Overview</h3>
 <div class="paragraph">
 <p>The documentation is writen in <a href="http://en.wikipedia.org/wiki/AsciiDoc" target="_blank">AsciiDoc</a> which is a plain-text markup format that
 can be created using any text editor and read “as-is”, or rendered to several other formats like HTML, PDF or EPUB.</p>
@@ -9759,13 +10211,164 @@ generate the pages then the javadoc link will be broken. Use the provided build-
 </div>
 </div>
 <div class="sect1">
+<h2 id="puppet-2"><a class="anchor" href="#puppet-2"></a>Puppet</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="overview-7"><a class="anchor" href="#overview-7"></a>Overview</h3>
+<div class="paragraph">
+<p>A GeoWave <a href="http://puppetlabs.com/" target="_blank">Puppet module</a> has been provided as part of both the tar.gz archive bundle and as an
+RPM. This module can be used to install the various GeoWave services onto separate nodes in a cluster or all onto a single
+node for development.</p>
+</div>
+<div class="paragraph">
+<p>There are a couple of different RPM repo settings that may need setting. As the repo is disabled by default to avoid picking
+up new Accumulo iterator jars without coordinating a service restart you&#8217;ll have to enable and then disable in consecutive
+Puppet runs to do the initial install.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="options"><a class="anchor" href="#options"></a>Options</h3>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">hadoop_vendor_version</dt>
+<dd>
+<p>The Hadoop framework vendor and version against which GeoWave was built. Currently only cdh5 is supported</p>
+</dd>
+<dt class="hdlist1">install_accumulo</dt>
+<dd>
+<p>Install the GeoWave Accumulo Iterator on this node and upload it into HDFS. This node must have a working HDFS client.</p>
+</dd>
+<dt class="hdlist1">install_app</dt>
+<dd>
+<p>Install the GeoWave ingest utility on this node. This node must have a working HDFS client.</p>
+</dd>
+<dt class="hdlist1">install_app_server</dt>
+<dd>
+<p>Install Jetty with Geoserver and GeoWave plugin on this node.</p>
+</dd>
+<dt class="hdlist1">http_port</dt>
+<dd>
+<p>The port on which the Jetty application server will run, defaults to 8080.</p>
+</dd>
+<dt class="hdlist1">repo_base_url</dt>
+<dd>
+<p>Used with the optional geowave::repo class to point the local package management system at a source for GeoWave RPMs.
+The default location is <a href="http://s3.amazonaws.com/geowave-rpms/dev/noarch/" class="bare">http://s3.amazonaws.com/geowave-rpms/dev/noarch/</a></p>
+</dd>
+<dt class="hdlist1">repo_enabled</dt>
+<dd>
+<p>To pick up an updated Accumulo iterator you&#8217;ll need to restart the Accumulo service. As we don&#8217;t want to pick up new
+RPMs with something like a yum-cron job without coordinating a restart so the repo is disabled by default.</p>
+</dd>
+<dt class="hdlist1">repo_refresh_md</dt>
+<dd>
+<p>The number of seconds before checking for new RPMs. On a production system the default of every 6 hours should be sufficient
+but you can lower this down to 0 for a development system on which you wish to pick up new packages as soon as they are
+made available.</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect2">
+<h3 id="examples-2"><a class="anchor" href="#examples-2"></a>Examples</h3>
+<div class="sect3">
+<h4 id="development"><a class="anchor" href="#development"></a>Development</h4>
+<div class="paragraph">
+<p>Install everything on a one node development system, use the GeoWave Development RPM Repo and force a check for new RPMs
+with every pull (don&#8217;t use cached metadata)</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-ruby" data-lang="ruby"># Dev VM
+class { 'geowave::repo':
+  repo_enabled    =&gt; 1,
+  repo_refresh_md =&gt; 0,
+} -&gt;
+class { 'geowave':
+  hadoop_vendor_version =&gt; 'cdh5',
+  install_accumulo      =&gt; true,
+  install_app           =&gt; true,
+  install_app_server    =&gt; true,
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="clustered"><a class="anchor" href="#clustered"></a>Clustered</h3>
+<div class="paragraph">
+<p>Run the application server on a different node, use a locally maintained rpm repo vs. the one available on the Internet and
+run the app server on an alternate port so as not to conflict with another service running on that host.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-ruby" data-lang="ruby"># Master Node
+node 'c1-master' {
+  class { 'geowave::repo':
+    repo_base_url   =&gt; 'http://my-local-rpm-repo/geowave-rpms/dev/noarch/',
+    repo_enabled    =&gt; 1,
+  } -&gt;
+  class { 'geowave':
+    hadoop_vendor_version =&gt; 'cdh5',
+    install_accumulo      =&gt; true,
+    install_app           =&gt; true,
+  }
+}
+
+# App server node
+node 'c1-app-01' {
+  class { 'geowave::repo':
+    repo_base_url   =&gt; 'http://my-local-rpm-repo/geowave-rpms/dev/noarch/',
+    repo_enabled    =&gt; 1,
+  } -&gt;
+  class { 'geowave':
+    hadoop_vendor_version =&gt; 'cdh5',
+    install_app_server    =&gt; true,
+    http_port             =&gt; '8888',
+  }
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="puppet-script-management"><a class="anchor" href="#puppet-script-management"></a>Puppet script management</h3>
+<div class="paragraph">
+<p>As mentioned in the overview the scripts are available from within the <a href="http://s3.amazonaws.com/geowave-rpms/index.html" target="_blank">GeoWave source tar bundle</a>
+(Search for gz to filter the list) or you could use the RPM package to install and pick up future updates on your puppet server.</p>
+</div>
+<div class="sect3">
+<h4 id="source-archive"><a class="anchor" href="#source-archive"></a>Source Archive</h4>
+<div class="paragraph">
+<p>Unzip the source archive, locate puppet-scripts.tar.gz and manage the scripts yourself on your Puppet Server</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="rpm"><a class="anchor" href="#rpm"></a>RPM</h4>
+<div class="paragraph">
+<p>There&#8217;s a bit of a boostrap issue when first configuring the Puppet server to use the geowave puppet RPM as yum won&#8217;t know
+about the rpm repo and the GeoWave Repo Puppet class hasn&#8217;t been installed yet. There is an RPM available that will set
+up the yum repo config after which you should install geowave-cdh-puppet manually and proceed to configure GeoWave on the
+rest of the cluster using Puppet.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash" data-lang="bash">rpm -Uvh http://s3.amazonaws.com/geowave-rpms/release/noarch/geowave-repo-1.0-3.noarch.rpm
+yum install geowave-cdh5-puppet</code></pre>
+</div>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
 <h2 id="appendices-2"><a class="anchor" href="#appendices-2"></a>Appendices</h2>
 <div class="sectionbody">
 <div style="page-break-after: always;"></div>
 <div class="sect2">
 <h3 id="version"><a class="anchor" href="#version"></a>Version</h3>
 <div class="paragraph">
-<p>This documentation was generated on 15/12/2014 for GeoWave version 0.8.2-SNAPSHOT from commit 2499b12e9e8e19a1fbf693d06ff819f251c8bf6c.</p>
+<p>This documentation was generated for GeoWave version 0.8.3-SNAPSHOT from commit 70f022a814faa190341b64c731b9d28b592848b6.</p>
 </div>
 <div style="page-break-after: always;"></div>
 </div>
@@ -9806,6 +10409,9 @@ generate the pages then the javadoc link will be broken. Use the provided build-
 <li>
 <p>Supported Types</p>
 </li>
+<li>
+<p>Editing from GitHub</p>
+</li>
 </ul>
 </div>
 </div>
@@ -9814,7 +10420,7 @@ generate the pages then the javadoc link will be broken. Use the provided build-
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2014-12-14 20:56:36 EST
+Last updated 2015-02-19 12:57:32 UTC
 </div>
 </div>
 </body>
