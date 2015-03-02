@@ -24,7 +24,7 @@ binary-arch: build
 	dh_makeshlibs
 	dh_installdeb
 	-dh_shlibdeps
-	dh_gencontrol -- -v$(GEOWAVE_VERSION)-$(BUILD_TIMESTAMP)
+	dh_gencontrol -- -v$(GEOWAVE_VERSION)-$(BUILD_TIMESTAMP) -VPLATFORM=cdh
 	dh_md5sums
 	dh_builddeb
 

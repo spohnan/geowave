@@ -5,7 +5,7 @@ Maintainer: Andrew Spohn <andrew.e.spohn.ctr@nga.mil>
 Vcs-Git: http://github.com/ngageoint/geowave.git
 Homepage: http://ngageoint.github.io/geowave/
 
-Package: geowave-accumulo
+Package: geowave-${PLATFORM}-accumulo
 Architecture: all
 Depends: geowave-core
 Description: GeoWave Accumulo Components
