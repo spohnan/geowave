@@ -11,6 +11,8 @@ while [ $# -gt 0 ]; do
     shift
 done
 
+export VENDOR=$ARGS[vendor]
+
 # Artifact settings
 ARTIFACT_01_URL=$LOCAL_JENKINS/job/${ARGS[job]}/lastSuccessfulBuild/artifact/geowave-deploy/target/geowave-accumulo.jar
 ARTIFACT_02_URL=$LOCAL_JENKINS/job/${ARGS[job]}/lastSuccessfulBuild/artifact/geowave-deploy/target/geowave-geoserver.jar

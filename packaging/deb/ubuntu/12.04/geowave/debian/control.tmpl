@@ -5,48 +5,48 @@ Maintainer: Andrew Spohn <andrew.e.spohn.ctr@nga.mil>
 Vcs-Git: http://github.com/ngageoint/geowave.git
 Homepage: http://ngageoint.github.io/geowave/
 
-Package: geowave-${PLATFORM}-accumulo
+Package: geowave-@VENDOR@-accumulo
 Architecture: all
-Depends: geowave-core
+Depends: geowave-@VENDOR@-core
 Description: GeoWave Accumulo Components
  GeoWave provides geospatial and temporal indexing on top of Accumulo.
  This package installs the Accumulo components of GeoWave
 
-Package: geowave-core
+Package: geowave-@VENDOR@-core
 Architecture: all
 Description: GeoWave Core
  GeoWave provides geospatial and temporal indexing on top of Accumulo.
  This package installs the GeoWave home directory and user account
 
-Package: geowave-docs
+Package: geowave-@VENDOR@-docs
 Architecture: all
-Depends: geowave-core
+Depends: geowave-@VENDOR@-core
 Description: GeoWave Documentation
  GeoWave provides geospatial and temporal indexing on top of Accumulo.
  This package installs the GeoWave documentation
 
-Package: geowave-ingest
+Package: geowave-@VENDOR@-ingest
 Architecture: all
-Depends: geowave-core
+Depends: geowave-@VENDOR@-core
 Description: GeoWave Ingest Tool
  GeoWave provides geospatial and temporal indexing on top of Accumulo.
  This package installs the GeoWave ingest tool
 
-Package: geowave-jetty
+Package: geowave-@VENDOR@-jetty
 Architecture: all
-Depends: geowave-core
+Depends: geowave-@VENDOR@-core
 Description: GeoWave GeoServer Components
  GeoWave provides geospatial and temporal indexing on top of Accumulo.
  This package installs the Accumulo components of GeoWave
 
-Package: geowave-puppet
+Package: geowave-@VENDOR@-puppet
 Architecture: all
 Description: GeoWave Puppet Scripts
  This package installs the GeoWave Puppet module to /etc/puppet/modules
 
-Package: geowave-single-host
+Package: geowave-@VENDOR@-single-host
 Architecture: all
-Depends: geowave-accumulo, geowave-docs, geowave-ingest, geowave-jetty
+Depends: geowave-@VENDOR@-accumulo, geowave-@VENDOR@-docs, geowave-@VENDOR@-ingest, geowave-@VENDOR@-jetty
 Description: All GeoWave Components
  GeoWave provides geospatial and temporal indexing on top of Accumulo.
  This package installs the Accumulo, GeoServer and ingest components and

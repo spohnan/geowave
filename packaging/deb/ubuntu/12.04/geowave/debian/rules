@@ -24,7 +24,9 @@ binary-arch: build
 	dh_makeshlibs
 	dh_installdeb
 	-dh_shlibdeps
-	dh_gencontrol -- -v$(GEOWAVE_VERSION)-$(BUILD_TIMESTAMP) -Vdist:PLATFORM=cdh
+	cp -f debian/control.tmpl debian/control
+	sed -i -e "s|@VENDOR@|$(VENDOR)|" debian/control
+	dh_gencontrol -- -v$(GEOWAVE_VERSION)-$(BUILD_TIMESTAMP)
 	dh_md5sums
 	dh_builddeb
 
