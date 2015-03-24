@@ -5,7 +5,7 @@
 <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 1.5.2">
-<meta name="author" content="v0.8.3-SNAPSHOT">
+<meta name="author" content="v0.8.4-SNAPSHOT">
 <title>GeoWave Documentation</title>
 <style>
 /* Asciidoctor default stylesheet | MIT License | http://asciidoctor.org */
@@ -416,7 +416,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div id="header">
 <h1>GeoWave Documentation</h1>
 <div class="details">
-<span id="author" class="author">v0.8.3-SNAPSHOT</span><br>
+<span id="author" class="author">v0.8.4-SNAPSHOT</span><br>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -455,6 +455,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#architecture-indexes">Indexes</a></li>
 <li><a href="#architecture-adapters">Adapters</a></li>
 <li><a href="#architecture-accumulo">Accumulo Key Structure</a></li>
+<li><a href="#statistics">Statistics</a></li>
 </ul>
 </li>
 <li><a href="#ingest">Ingest</a>
@@ -518,7 +519,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#ordering">Ordering</a></li>
 <li><a href="#preview">Preview</a></li>
 <li><a href="#transformation">Transformation</a></li>
-<li><a href="#publishing">Publishing</a></li>
+<li><a href="#site">Site</a></li>
 </ul>
 </li>
 <li><a href="#puppet-2">Puppet</a>
@@ -695,7 +696,7 @@ an excellent starting point to start learning about these curves.</p>
 <h4 id="z-order-sfc"><a class="anchor" href="#z-order-sfc"></a>Z-Order SFC</h4>
 <div class="paragraph">
 <p>This is also commonly called a GeoHash, or Morton order (and sometimes incorrectly called a Peano curve). This is the
-most popular SFC used for muti-dimensional &#8594; 1-dimensional mappigns – primarily because it is both intuitive and very
+most popular SFC used for multi-dimensional &#8594; 1-dimensional mappings – primarily because it is both intuitive and very
 easy to implement in code. There are two common ways to implement this – ideally a bit-interleaving is used (that is
 what gives rise to the diagram in figure 2) – imagine we had two numbers, A and B. Let the binary representation of
 those numbers be A1A2A3 and B1B2B3. The “bit interleaved” version would be A1B1A2B2A3B3. Since we are working with
@@ -863,12 +864,12 @@ density analytic. The data corresponds to Mapbox zoom level 13.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="./images/geolife-density-13.jpg" alt="T-drive density at city scale">
+<a class="image" href="images/geolife-density-13.jpg"><img src="./images/geolife-density-13-thumb.jpg" alt="Geolife density at city scale"></a>
 </div>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="./images/geolife-points-13.jpg" alt="Geolife points at city scale">
+<a class="image" href="images/geolife-points-13.jpg"><img src="./images/geolife-points-13-thumb.jpg" alt="Geolife points at city scale"></a>
 </div>
 </div>
 <div style="page-break-after: always;"></div>
@@ -880,7 +881,7 @@ density analytic. The data corresponds to Mapbox zoom level 13.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="./images/geolife-density-17.jpg" alt="T-drive density at city scale">
+<a class="image" href="images/geolife-density-17.jpg"><img src="./images/geolife-density-17-thumb.jpg" alt="GeoLife at house scale"></a>
 </div>
 </div>
 <div class="paragraph">
@@ -888,7 +889,7 @@ density analytic. The data corresponds to Mapbox zoom level 13.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="./images/geolife-points-17.jpg" alt="Geolife points at city scale">
+<a class="image" href="images/geolife-points-17.jpg"><img src="./images/geolife-points-17-thumb.jpg" alt="GeoLife at house scale"></a>
 </div>
 </div>
 <div class="paragraph">
@@ -914,7 +915,7 @@ just under one million trajectories.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="./images/osmgpx.jpg" alt="T-drive density at city scale">
+<a class="image" href="images/osmgpx.jpg"><img src="./images/osmgpx-thumb.jpg" alt="OSM GPX at continent scale"></a>
 </div>
 </div>
 <div style="page-break-after: always;"></div>
@@ -926,7 +927,7 @@ just under one million trajectories.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="./images/osmgpx-world.jpg" alt="Geolife points at city scale">
+<a class="image" href="images/osmgpx-world.jpg"><img src="./images/osmgpx-world-thumb.jpg" alt="Geolife points at city scale"></a>
 </div>
 </div>
 <div style="page-break-after: always;"></div>
@@ -949,12 +950,12 @@ density analytic. The data corresponds to Mapbox zoom level 12.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="./images/t-drive-points-12.jpg" alt="T-drive points at city scale">
+<a class="image" href="images/t-drive-points-12.jpg"><img src="./images/t-drive-points-12-thumb.jpg" alt="T-drive points at city scale"></a>
 </div>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="./images/t-drive-density-12.jpg" alt="T-drive density at city scale">
+<a class="image" href="images/t-drive-density-12.jpg"><img src="./images/t-drive-density-12-thumb.jpg" alt="T-drive density at city scale"></a>
 </div>
 </div>
 <div style="page-break-after: always;"></div>
@@ -1174,6 +1175,39 @@ serialize and deserialize these items in the form of Field Readers and Writers, 
 methods on the classpath of any Accumulo nodes.</p>
 </div>
 </div>
+<div class="sect3">
+<h4 id="statistics"><a class="anchor" href="#statistics"></a>Statistics</h4>
+<div class="paragraph">
+<p>Adapters provide a set of statistics stored within a statistic store.  The set of available statistics is specific to each adapter and
+the set of attributes for those data items managed by the adapter. Statistics include:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Ranges over an attribute, including time.</p>
+</li>
+<li>
+<p>Enveloping bounding box over all geometries.</p>
+</li>
+<li>
+<p>Cardinality of the number of stored items.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Optional statistics include:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Histograms over the range of values for an attribute.</p>
+</li>
+<li>
+<p>Cardinality of discrete values of an attribute.</p>
+</li>
+</ul>
+</div>
+</div>
 </div>
 <div class="sect2">
 <h3 id="architecture-accumulo"><a class="anchor" href="#architecture-accumulo"></a>Accumulo Key Structure</h3>
@@ -1193,7 +1227,114 @@ The adapter ID is within the Row ID to enforce unique row IDs as a whole row ite
 distributable filters. The adapter ID is also used as the column family as the mechanism for adapter-specific queries to
 fetch only the appropriate column families.</p>
 </div>
+</div>
+<div class="sect2">
+<h3 id="statistics"><a class="anchor" href="#statistics"></a>Statistics</h3>
+<div class="paragraph">
+<p>Adapters provide a set of statistics stored within a statistic store.  The set of available statistics is specific to each adapter and
+the set of attributes for those data items managed by the adapter. Statistics include:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Ranges over an attribute, including time.</p>
+</li>
+<li>
+<p>Enveloping bounding box over all geometries.</p>
+</li>
+<li>
+<p>Cardinality of the number of stored items.</p>
+</li>
+<li>
+<p>Histograms over the range of values for an attribute.</p>
+</li>
+<li>
+<p>Cardinality of discrete values of an attribute.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Statistics are updated during data ingest and deletion.  Range and bounding box statistics reflect the largest range over time.
+Those statistics are not updated during deletion. Cardinality-based statistics are updated upon deletion.</p>
+</div>
+<div class="paragraph">
+<p>Statistics retain the same visibility constraints as the associated attributes.  Thus, there is a set of statistics for each unique constraint.
+The statistics store answers each statistics inquiry for a given adapter with only those statistics matching the authorizations of the requester.
+The statistics store merges authorized statistics covering the same attribute.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="./images/stats_merge.png" alt="Statistics Merge">
+</div>
+</div>
+<div class="sect3">
+<h4 id="statistics-table-structure-in-accumulo"><a class="anchor" href="#statistics-table-structure-in-accumulo"></a>Statistics Table Structure in Accumulo</h4>
+<div class="imageblock">
+<div class="content">
+<img src="./images/stats.png" alt="Statistics Structure">
+</div>
+</div>
+<div class="sect4">
+<h5 id="re-computation"><a class="anchor" href="#re-computation"></a>Re-Computation</h5>
+<div class="paragraph">
+<p>Re-computation of statistics is required in three circumstances:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>As indexed items are removed from the adapter store, the range and envelope statistics may lose their accuracy if the removed item
+contains an attribute that represents the minimum or maximum value for the population.</p>
+</li>
+<li>
+<p>New statistics added to the statistics store after data items are ingested.  These new statistics do not reflect the entire population.</p>
+</li>
+<li>
+<p>Software changes invalidate prior stored images of statistics.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>A simple statistics tool is a command line tool to recompute all statistics for a given adapter.  The tool is soon to be replaced by a more comprehensive and efficient tool.
+The tool removes all statistics for adapter, scans the entire data set and reconstructs to statistics. The tool is be executed within a JVM using any of the assembled JAR files.
+The arguments to the tool are as follow, presented in the exact order required.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Zookeepers - Formatted as a comma-separated string: zookeeper1:port,zookeeper2:port</p>
+</li>
+<li>
+<p>Accumulo Instance ID - The "instance" that the Accumulo cluster.</p>
+</li>
+<li>
+<p>Accumulo Username - The nme of the connection user associated with a user account managed by Accumulo, not a system, etc.</p>
+</li>
+<li>
+<p>Accumulo Password - This is an Accumulo controlled secret.</p>
+</li>
+<li>
+<p>Geowave Namespace - This is <em>not</em> an Accumulo namespace; rather think of it as a prefix Geowave uses for index table creation.</p>
+</li>
+<li>
+<p>Geowave Adapter ID - The name of the adapter.  This is the local name for the feature name managed by the Feature Data Adapter.
+This name matches the layer name in GeoServer.</p>
+</li>
+<li>
+<p>Authorizations - Ideally, the requesting authorizations should encompass ALL authorizations of the system.  The authorizations may be provided in a comma-separated list.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Make sure JAVA_HOME is set prior to invoking the following command.</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>java -cp /usr/local/geowave/ingest/geowave-ingest-tool.jar  mil.nga.giat.geowave.accumulo.util.StatsTool  "localhost:12342" "GeoWave" "root" "pAssWord" "test" "GpxTrack" "A,B&amp;C"</pre>
+</div>
+</div>
 <div style="page-break-after: always;"></div>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -2308,6 +2449,15 @@ As expected with Accumulo, operations on a single feature instances are atomic.<
 and Zookeeper. Memory is suitable for single Geoserver instance installations.</p>
 </div>
 </div>
+<div class="sect4">
+<h5 id="index-selection"><a class="anchor" href="#index-selection"></a>Index Selection</h5>
+<div class="paragraph">
+<p>Data written through WFS-T is indexed within a single index.  The adapter inspects existing indices, finding one that matches
+the data requirements.  A geo-temporal index is chosen for features with temporal attributes.  The adapter creates a geo-spatial index
+upon failure of finding a suitable index.  Geo-temporal index is not created, regardless of the existence of temporal attributes.  Currently,
+geo-temporal indices lead to poor performance for queries requesting vectors over large spans of time.</p>
+</div>
+</div>
 </div>
 <div class="sect3">
 <h4 id="authorization-management"><a class="anchor" href="#authorization-management"></a>Authorization Management</h4>
@@ -2379,6 +2529,13 @@ The rule <code>.<strong></code> matches all properties. The more specific rule <
 <div class="paragraph">
 <p>The system extracts the JSON visibility string from a feature instance property named <code>GEOWAVE_VISIBILITY</code>. Selection
 of an alternate property is achieved by setting the associated attribute descriptor 'visibility' to the boolean value TRUE.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="statistics-2"><a class="anchor" href="#statistics-2"></a>Statistics</h4>
+<div class="paragraph">
+<p>The adapter captures statistics for each numeric, temporal and geo-spatial attribute.  Statistics are used to constrain queries and
+answer inquiries by GeoServer for data ranges, as required for map requests and calibration of zoom levels in Open Layers.</p>
 </div>
 <div style="page-break-after: always;"></div>
 </div>
@@ -2938,7 +3095,7 @@ with a quick refresh of the browser.</p>
 <p>To preview the entire finished page web page or see the generated PDF you&#8217;ll need to run the transformation process.</p>
 </div>
 <div class="listingblock">
-<div class="title">Generate Website Pages</div>
+<div class="title">Generate Documentation</div>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash" data-lang="bash"> cd geowave
  mvn -P docs -pl docs install <i class="conum" data-value="1"></i><b>(1)</b></code></pre>
@@ -2948,7 +3105,7 @@ with a quick refresh of the browser.</p>
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>Process <em>only</em> the docs module</td>
+<td>-pl docs = Process <em>only</em> the docs module. Skips the javadoc generation step.</td>
 </tr>
 </table>
 </div>
@@ -2957,24 +3114,18 @@ with a quick refresh of the browser.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="publishing"><a class="anchor" href="#publishing"></a>Publishing</h3>
+<h3 id="site"><a class="anchor" href="#site"></a>Site</h3>
 <div class="paragraph">
-<p>To publish updated documentation to the application web site we have to build both the javadocs and the site pages. The
-<code>geowave/.utility/build-site-content.sh</code> script can be used to build all documentation. Once all docs have been built the
-<code>geowave/.utility/publish-to-github-pages.sh</code> script will push the content up to the application web site.</p>
+<p>To build all the content used for the <a href="https://ngageoint.github.io/geowave/">GeoWave website</a> use the following command. The
+entire site, including both docs and javadocs, will be available for inspection in the <code>geowave/target/site/</code> directory.</p>
 </div>
-<div class="admonitionblock warning">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-warning" title="Warning"></i>
-</td>
-<td class="content">
-The publishing is done with a forced push so <em>all</em> site content must be generated before publishing. If you only
-generate the pages then the javadoc link will be broken. Use the provided build-site-content.sh script to automate.
-</td>
-</tr>
-</table>
+<div class="paragraph">
+<p>+[source, bash]
++.Generate Website
++----
++ cd geowave
++ mvn -P docs install
++----</p>
 </div>
 <div style="page-break-after: always;"></div>
 </div>
@@ -3138,7 +3289,7 @@ yum install geowave-cdh5-puppet</code></pre>
 <div class="sect2">
 <h3 id="version"><a class="anchor" href="#version"></a>Version</h3>
 <div class="paragraph">
-<p>This documentation was generated for GeoWave version 0.8.3-SNAPSHOT from commit 43f445ff53b70b3739c361b8e003a046d73e8e0d.</p>
+<p>This documentation was generated for GeoWave version 0.8.4-SNAPSHOT from commit b3f92bb800e6aa84b99dfee211c43f2f23e358fe.</p>
 </div>
 <div style="page-break-after: always;"></div>
 </div>
@@ -3190,7 +3341,7 @@ yum install geowave-cdh5-puppet</code></pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2015-02-20 20:02:44 UTC
+Last updated 2015-03-24 12:19:17 UTC
 </div>
 </div>
 </body>
