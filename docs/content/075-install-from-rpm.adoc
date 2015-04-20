@@ -26,38 +26,54 @@ yum --enablerepo=geowave install geowave-*
 Restart Accumulo service
 ----
 
+==== RPM Descriptions
+
+Some packages are compiled for a specific vendor release and are shown in the table below with a $VENDOR label in the name. Other packages like
+documentation are the same for any installation. The table below lists all of the available packages, gives a brief description of what they contain
+and where they might be installed in various deployment scenarios.
+
 .GeoWave RPMs
-[cols="2*", options="header"]
+[cols="3*", options="header"]
 |===
 |Name
 |Description
+|Usage
 
-|geowave-*-accumulo
-|Accumulo Components
+|geowave-$VENDOR-accumulo
+|GeoWave custom Accumulo iterator and helper classes
+|This RPM installs the geowave-accumulo.jar locally and then with a hadoop fs -put command copies the file into HDFS. Needs to be installed on a node with the hadoop binary and connectivity to HDFS like the namenode.
 
-|geowave-*-core
-|Core (home directory and geowave user)
+|geowave-core
+|Core ensures the GeoWave home directory and user have been created
+|All other RPMs depend on this one so it will be installed for you when installing other packages
 
-|geowave-*-docs
-|Documentation (HTML, PDF and man pages)
+|geowave-docs
+|Documentation (HTML, PDF, EPUB and man pages)
+|Optional package that installs the documentation on any node
 
-|geowave-*-ingest
+|geowave-$VENDOR-ingest
 |Ingest Tool
+|Optional package that installs the command line ingest tool on any node from which you'd like to use to ingest data
 
-|geowave-*-jetty
+|geowave-$VENDOR-jetty
 |GeoServer components installed into /usr/local/geowave/geoserver and available at http://FQDN:8080/geoserver
+|Optional package that uses the GeoServer plugin to provide access to ingested data via OGC services
 
-|geowave-*-puppet
+|geowave-puppet
 |Puppet Scripts
+|Optional package that will install the GeoWave Puppet module onto a Puppet server
 
-|geowave-*-single-host
+|geowave-$VENDOR-single-host
 |All GeoWave Components installed on a single host (sometimes useful for development)
+|Optional meta-package that has dependencies on all other packages. Will install everything on one node for the development deployment scenario
 
 |geowave-repo
 |GeoWave RPM Repo config file
+|Optional package that will install the GeoWave Release RPM Repo configuration onto any host
 
 |geowave-repo-dev
 |GeoWave Development RPM Repo config file
+|Optional package that will install the GeoWave Development RPM Repo configuration onto any host
 
 |===
 

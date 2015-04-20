@@ -103,6 +103,26 @@ isValidUrl() {
 	[[ $1 =~ $VALID_URL_REGEX ]] && return 0 || return 1
 }
 
+# Download_from_url URL [NEW_FILE_NAME]
+download_from_url() {
+	HTTP_NOT_MODIFIED=304
+
+	# Use existing file name or renaming?
+	if [ -z $2 ]; then
+		LOCAL_FILE=$(basename $1)
+	else
+		LOCAL_FILE=$2
+	fi
+
+	# Short circuit download if file modification date is unmodified from local copy
+	if [ -f $LOCAL_FILE ]; then
+		[[ "$(curl $1 -z "$(date --rfc-2822 -d @$(stat -c %Y $LOCAL_FILE))" -o $LOCAL_FILE -s -L -w %{http_code})" == $HTTP_NOT_MODIFIED ]] && echo "No download of $LOCAL_FILE needed, file up to date"
+	else
+		echo "Downloading ${LOCAL_FILE} from ${1}"
+		curl $1 -o $LOCAL_FILE
+	fi
+}
+
 update_artifact() {
 	ARTIFACT_URL="$1"	# Required, url to fetch asset
 	DOWNLOAD_NAME="$2"	# Optional, rename file upon download
@@ -117,17 +137,9 @@ update_artifact() {
 		fi
 	fi
 
-	# Construct the download command
-	if [ $DOWNLOAD_NAME ]; then
-		CMD="curl $CURL_ARGS -o "$DOWNLOAD_NAME" $ARTIFACT_URL"
- 	else
- 		CMD="curl $CURL_ARGS -O $ARTIFACT_URL"
- 	fi
-
- 	# CD to the desired directory in a subshell so as not to affect
- 	# the rest of the script PWD
+ 	# CD to the desired directory in a subshell so as not to affect the rest of the script PWD
  	if [ ! $TEST_ENV ]; then
- 		( cd "$CALLING_SCRIPT_DIR/SOURCES" > /dev/null ; `$CMD` )
+ 		( cd "$CALLING_SCRIPT_DIR/SOURCES" > /dev/null ; download_from_url "$ARTIFACT_URL" "$DOWNLOAD_NAME" )
  	else
  		echo $CMD # If under test environment
  	fi

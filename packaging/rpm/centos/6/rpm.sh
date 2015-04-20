@@ -15,19 +15,19 @@ while [ $# -gt 0 ]; do
 done
 
 # Artifact settings
-ARTIFACT_01_URL=$LOCAL_JENKINS/job/${ARGS[job]}/lastSuccessfulBuild/artifact/geowave-deploy/target/geowave-accumulo.jar
-ARTIFACT_02_URL=$LOCAL_JENKINS/job/${ARGS[job]}/lastSuccessfulBuild/artifact/geowave-deploy/target/geowave-geoserver.jar
-ARTIFACT_03_URL=$LOCAL_JENKINS/job/${ARGS[job]}/lastSuccessfulBuild/artifact/geowave-types/target/geowave-ingest-tool.jar
-ARTIFACT_04_URL=$LOCAL_JENKINS/job/${ARGS[job]}/lastSuccessfulBuild/artifact/target/site.tar.gz
-ARTIFACT_05_URL=$LOCAL_JENKINS/job/${ARGS[job]}/lastSuccessfulBuild/artifact/geowave-deploy/target/puppet-scripts.tar.gz
-ARTIFACT_06_URL=$LOCAL_JENKINS/job/${ARGS[job]}/lastSuccessfulBuild/artifact/docs/target/manpages.tar.gz
-ARTIFACT_07_URL=$LOCAL_JENKINS/userContent/geoserver/${ARGS[geoserver]}
+ARTIFACT_01_URL=${ARGS[artifact-base-url]}/geowave-deploy/target/geowave-accumulo.jar
+ARTIFACT_02_URL=${ARGS[artifact-base-url]}/geowave-deploy/target/geowave-geoserver.jar
+ARTIFACT_03_URL=${ARGS[artifact-base-url]}/geowave-types/target/geowave-ingest-tool.jar
+ARTIFACT_04_URL=${ARGS[artifact-base-url]}/target/site.tar.gz
+ARTIFACT_05_URL=${ARGS[artifact-base-url]}/geowave-deploy/target/puppet-scripts.tar.gz
+ARTIFACT_06_URL=${ARGS[artifact-base-url]}/docs/target/manpages.tar.gz
+ARTIFACT_07_URL=${ARGS[geoserver-url]}
 RPM_ARCH=noarch
 
 case ${ARGS[command]} in
     build) rpmbuild \
                 --define "_topdir $(pwd)" \
-                --define "_name ${ARGS[rpmname]}" \
+                --define "_vendor ${ARGS[vendor]}" \
                 --define "_version $(parseVersion)" \
                 $(buildArg "${ARGS[buildarg]}") SPECS/*.spec ;;
     clean) clean ;;

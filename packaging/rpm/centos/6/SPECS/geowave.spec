@@ -1,5 +1,6 @@
+%define name        geowave
 %define timestamp   %(date +%Y%m%d%H%M)
-%define name        %{?_name}%{!?_name: geowave}
+%define vendor      %{_vendor}
 %define version     %{?_version}%{!?_version: UNKNOWN}
 %define buildroot   %{_topdir}/BUILDROOT/%{name}-%{version}-root
 %define __jar_repack %{nil}
@@ -125,37 +126,36 @@ tar -xzf %{SOURCE12} -C %{buildroot}/etc/puppet/modules
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-%package        single-host
+%package -n     %{name}-%{vendor}-single-host
 Summary:        All GeoWave Components
 Group:          Applications/Internet
-Requires:       %{name}-accumulo
-Requires:       %{name}-jetty
-Requires:       %{name}-ingest
+Requires:       %{name}-%{vendor}-accumulo
+Requires:       %{name}-%{vendor}-jetty
+Requires:       %{name}-%{vendor}-ingest
 
-%description single-host
+%description -n %{name}-%{vendor}-single-host
 GeoWave provides geospatial and temporal indexing on top of Accumulo.
 This package installs the accumulo, geoserver and ingest components and 
 would likely be useful for dev environments
 
-%files single-host
+%files -n %{name}-%{vendor}-single-host
 # This is a meta-package and only exists to install other packages
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-%package        accumulo
+%package -n     %{name}-%{vendor}-accumulo
 Summary:        GeoWave Accumulo Components
 Group:          Applications/Internet
-Provides:       %{name}-accumulo = %{version}
 Requires:       %{name}-core
 
-%description accumulo
+%description -n %{name}-%{vendor}-accumulo
 GeoWave provides geospatial and temporal indexing on top of Accumulo.
 This package installs the Accumulo components of GeoWave
 
-%post accumulo
+%post -n %{name}-%{vendor}-accumulo
 /bin/bash %{geowave_accumulo_home}/deploy-geowave-to-hdfs.sh >> %{geowave_accumulo_home}/geowave-to-hdfs.log 2>&1
 
-%files accumulo
+%files -n %{name}-%{vendor}-accumulo
 %attr(755, hdfs, hdfs) %{geowave_accumulo_home}
 %attr(644, hdfs, hdfs) %{geowave_accumulo_home}/geowave-accumulo.jar
 %attr(755, hdfs, hdfs) %{geowave_accumulo_home}/deploy-geowave-to-hdfs.sh
@@ -211,25 +211,25 @@ This package installs the GeoWave documentation into the GeoWave directory
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-%package        jetty
+%package -n     %{name}-%{vendor}-jetty
 Summary:        GeoWave GeoServer Components
 Group:          Applications/Internet
-Provides:       %{name}-jetty = %{version}
+Provides:       %{name}-%{vendor}-jetty = %{version}
 Requires:       %{name}-core
 
-%description jetty
+%description -n %{name}-%{vendor}-jetty
 GeoWave provides geospatial and temporal indexing on top of Accumulo.
 This package installs the Accumulo components of GeoWave
 
-%post jetty
+%post -n %{name}-%{vendor}-jetty
 /sbin/chkconfig --add geowave
 exit 0
 
-%preun jetty
+%preun -n %{name}-%{vendor}-jetty
 /sbin/service geowave stop >/dev/null 2>&1
 exit 0
 
-%files jetty
+%files -n %{name}-%{vendor}-jetty
 %defattr(644, geowave, geowave, 755) 
 %{geowave_geoserver_home}
 
@@ -246,25 +246,25 @@ exit 0
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-%package        ingest
+%package -n     %{name}-%{vendor}-ingest
 Summary:        GeoWave Ingest Tool
 Group:          Applications/Internet
 Provides:       %{name}-ingest = %{version}
 Requires:       %{name}-core
 
-%description ingest
+%description -n %{name}-%{vendor}-ingest
 GeoWave provides geospatial and temporal indexing on top of Accumulo.
 This package installs the GeoWave ingest tool
 
-%post ingest
+%post -n %{name}-%{vendor}-ingest
 ln -s /usr/local/geowave/ingest/geowave-ingest.sh /usr/local/bin/geowave-ingest
 
-%postun ingest
+%postun -n %{name}-%{vendor}-ingest
 if [ $1 -eq 0 ]; then
   rm -f /usr/local/bin/geowave-ingest
 fi
 
-%files ingest
+%files -n %{name}-%{vendor}-ingest
 %defattr(644, geowave, geowave, 755)
 %{geowave_ingest_home}
 
@@ -288,6 +288,8 @@ This package installs the geowave Puppet module to /etc/puppet/modules
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 %changelog
+* Thu Apr 16 2015 Andrew Spohn <andrew.e.spohn.ctr@nga.mil> - 0.8.6
+- Refactored package names to only include vendor name when required
 * Thu Jan 15 2015 Andrew Spohn <andrew.e.spohn.ctr@nga.mil> - 0.8.2-3
 - Added man pages
 * Mon Jan 5 2015 Andrew Spohn <andrew.e.spohn.ctr@nga.mil> - 0.8.2-2
