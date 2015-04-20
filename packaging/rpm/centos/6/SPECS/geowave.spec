@@ -39,8 +39,6 @@ Source12:       puppet-scripts.tar.gz
 Source13:       manpages.tar.gz
 BuildRequires:  unzip
 BuildRequires:  zip
-BuildRequires:  xmlto
-BuildRequires:  asciidoc
 
 %description
 GeoWave provides geospatial and temporal indexing on top of Accumulo.
