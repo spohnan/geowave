@@ -12,7 +12,7 @@ ADMIN_SCRIPTS_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 CALLING_SCRIPT_DIR=$1
 
 # All of these apps need to be installed on a system to run this script
-REQUIRED_APPS=('awk' 'curl' 'sed' 'unzip' 'rpmbuild' 'rpm2cpio')
+REQUIRED_APPS=('awk' 'curl' 'sed' 'unzip' 'rpmbuild')
 
 about() {
 	echo "Usage: $0 --command [clean|update|build]"
